@@ -252,9 +252,11 @@ namespace MatterHackers.MatterControl.PartPreviewWindow
                 renderType |= RenderType.Retractions;
             }
 
+			#if NOT_ANDROID
             GCodeRenderer.ExtrusionColor = ActiveTheme.Instance.PrimaryAccentColor;
             gcodeViewWidget.gCodeRenderer.Render3D(0, Math.Min(gcodeViewWidget.ActiveLayerIndex + 1, gcodeViewWidget.LoadedGCode.NumChangesInZ), gcodeViewWidget.TotalTransform, 1, renderType,
                 gcodeViewWidget.FeatureToStartOnRatio0To1, gcodeViewWidget.FeatureToEndOnRatio0To1);
+			#endif
         }
 
         private void SetAnimationPosition()

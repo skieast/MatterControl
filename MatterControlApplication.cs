@@ -99,7 +99,9 @@ namespace MatterHackers.MatterControl
             if (File.Exists("RunUnitTests.txt"))
 #endif
             {
-                Clipboard.SetSystemClipboardFunctions(System.Windows.Forms.Clipboard.GetText, System.Windows.Forms.Clipboard.SetText, System.Windows.Forms.Clipboard.ContainsText);
+				#if NOT_ANDROID
+				Clipboard.SetSystemClipboardFunctions(System.Windows.Forms.Clipboard.GetText, System.Windows.Forms.Clipboard.SetText, System.Windows.Forms.Clipboard.ContainsText);
+				#endif
 
                 MatterHackers.PolygonMesh.UnitTests.UnitTests.Run();
                 MatterHackers.RayTracer.UnitTests.Run();
@@ -129,7 +131,7 @@ namespace MatterHackers.MatterControl
 #endif
             this.AnchorAll();
 
-            UseOpenGL = true;
+			UseOpenGL = false;
             string version = "1.1";
 
             Title = "MatterControl {0}".FormatWith(version);

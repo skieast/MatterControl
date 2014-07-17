@@ -34,21 +34,20 @@ using System.Text;
 
 using MatterHackers.Agg;
 using MatterHackers.Agg.Image;
-using MatterHackers.Agg.UI;
-using MatterHackers.Agg.OpenGlGui;
-using MatterHackers.PolygonMesh;
-using MatterHackers.RenderOpenGl;
-using MatterHackers.VectorMath;
-using MatterHackers.MeshVisualizer;
-using MatterHackers.PolygonMesh.Processors;
-using MatterHackers.PolygonMesh.Csg;
-using MatterHackers.MarchingSquares;
-using MatterHackers.MatterControl.DataStorage;
 using MatterHackers.Agg.ImageProcessing;
+using MatterHackers.Agg.UI;
 using MatterHackers.Agg.VertexSource;
-using MatterHackers.MatterControl.PrintQueue;
+using MatterHackers.PolygonMesh;
+using MatterHackers.PolygonMesh.Csg;
+using MatterHackers.PolygonMesh.Processors;
 using MatterHackers.RayTracer;
 using MatterHackers.RayTracer.Traceable;
+using MatterHackers.RenderOpenGl;
+using MatterHackers.VectorMath;
+using MatterHackers.MarchingSquares;
+using MatterHackers.MatterControl.DataStorage;
+using MatterHackers.MatterControl.PrintQueue;
+using MatterHackers.MeshVisualizer;
 
 namespace MatterHackers.MatterControl.PartPreviewWindow
 {

@@ -367,7 +367,7 @@ namespace MatterHackers.MatterControl
 			{
 				if (showInFolderAfterSave.Checked) 
 				{
-					WindowsFormsAbstract.ShowFileInFolder (filename);
+					//WindowsFormsAbstract.ShowFileInFolder (filename);
 				}
 			}
         }

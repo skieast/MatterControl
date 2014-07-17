@@ -99,7 +99,6 @@ namespace MatterHackers.MatterControl.ActionBar
                 selectActivePrinterButton.Margin = new BorderDouble(0, 6, 6, 3);
             }
             
-
             actionBarButtonFactory.invertImageLocation = true;
 
             this.AddChild(connectPrinterButton);

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using System.IO.Ports;
+using MatterHackers.SerialPortCommunication.FrostedSerial;
 using System.Diagnostics;
 
 using MatterHackers.Agg;
@@ -30,7 +30,7 @@ namespace MatterHackers.MatterControl.PrinterControls.PrinterConnections
             : base(windowController, containerWindowToClose, setupPrinterStatus)
         {
 
-            startingPortNames = SerialPort.GetPortNames();
+			startingPortNames = FrostedSerialPort.GetPortNames();
             contentRow.AddChild(createPrinterConnectionMessageContainer());
             {
                 //Construct buttons
@@ -149,7 +149,7 @@ namespace MatterHackers.MatterControl.PrinterControls.PrinterConnections
         void ConnectButton_Click(object sender, MouseEventArgs mouseEvent)
         {
             string candidatePort = null;
-            currentPortNames = SerialPort.GetPortNames();
+			currentPortNames = FrostedSerialPort.GetPortNames();
             foreach (string portName in currentPortNames)
             {
                 if (!startingPortNames.Any(portName.Contains))

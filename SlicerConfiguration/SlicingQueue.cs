@@ -234,7 +234,7 @@ namespace MatterHackers.MatterControl.SlicerConfiguration
                                     break;
                             }
 
-                            if (OsInformation.OperatingSystem == OSType.Mac
+							if ((OsInformation.OperatingSystem == OSType.Android || OsInformation.OperatingSystem == OSType.Mac)
                                 && ActivePrinterProfile.Instance.ActiveSliceEngineType == ActivePrinterProfile.SlicingEngineTypes.MatterSlice)
                             {
                                 itemCurrentlySlicing = itemToSlice;
