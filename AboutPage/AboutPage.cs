@@ -309,38 +309,5 @@ namespace MatterHackers.MatterControl
             {
             }
         }
-
-#if false // kevin code 2014 04 22
-        System.Windows.Forms.WebBrowser browser;
-        private void openBrowser(Uri url)
-        {
-            //SystemWindow browser = new SystemWindow(600,600);
-
-            System.Windows.Forms.Form test = new System.Windows.Forms.Form();
-            test.Icon = new System.Drawing.Icon(Path.Combine(ApplicationDataStorage.Instance.ApplicationStaticDataPath, "application.ico"));
-            test.Height = 480;
-            test.Width = 640;
-            test.Text = "MatterControl";
-
-            browser = new System.Windows.Forms.WebBrowser();
-            browser.DocumentCompleted += browser_DocumentCompleted;
-            browser.Navigate(url);
-            browser.Dock = System.Windows.Forms.DockStyle.Fill;
-
-            test.Controls.Add(browser);
-            test.Show();
-            //browser.AddChild(br);
-            //browser.ShowAsSystemWindow();
-        }
-
-        void browser_DocumentCompleted(object sender, System.Windows.Forms.WebBrowserDocumentCompletedEventArgs e)
-        {            
-            if (browser.Url == e.Url)
-            {                
-                Console.WriteLine("Navigated to {0}", e.Url);
-            }
-            browser.Show();
-        }
-#endif
     }
 }
