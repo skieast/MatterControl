@@ -75,6 +75,8 @@ namespace MatterHackers.MatterControl.SlicerConfiguration
         {
             //avoidCrossingPerimeters=True # Avoid crossing any of the perimeters of a shape while printing its parts.
             new MapItemToBool("avoidCrossingPerimeters", "avoid_crossing_perimeters"),
+
+			new MapItemToBool("outsidePerimetersFirst", "external_perimeters_first"),
              
             //bottomClipAmount=0 # The amount to clip off the bottom of the part, in millimeters.
             new MapItem("bottomClipAmount", "bottom_clip_amount"),
@@ -204,12 +206,11 @@ namespace MatterHackers.MatterControl.SlicerConfiguration
             new MapRepairOutlines("repairOutlines", "repair_outlines_extensive_stitching"),
             new NotPassedItem("", "repair_outlines_keep_open"),
 
-#if true
             new NotPassedItem("", "has_fan"),
+            new NotPassedItem("", "has_hardware_leveling"),
             new NotPassedItem("", "has_heated_bed"),
             new NotPassedItem("", "has_sd_card_reader"),
             new NotPassedItem("", "z_can_be_negative"),
-#endif
 
             //retractionOnExtruderSwitch=14.5
             new MapItem("retractionOnExtruderSwitch", "retract_length_tool_change"),
