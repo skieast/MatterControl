@@ -1226,22 +1226,11 @@ namespace MatterHackers.MatterControl.PartPreviewWindow
             });
             buttonList.Add("Save As", () =>
             {
-                if (saveAsWindow == null)
-                {
-                    saveAsWindow = new SaveAsWindow(MergeAndSavePartsToNewMeshFile);
-                    saveAsWindow.Closed += (sender2, e2) =>
-                    {
-                        saveAsWindow = null;
-                    };
-                }
-                else
-                {
-                    saveAsWindow.BringToFront();
-                }
+				UiThread.RunOnIdle(OpenSaveAsWindow);
                 return true;
             });
             SplitButtonFactory splitButtonFactory = new SplitButtonFactory();
-            splitButtonFactory.FixedHeight = 40;
+			splitButtonFactory.FixedHeight = 40 * TextWidget.GlobalPointSizeScaleRatio;
 			saveButtons = splitButtonFactory.Generate(buttonList, Direction.Up,imageName:"icon_save_32x32.png");
             saveButtons.Visible = false;
 
@@ -1250,6 +1239,24 @@ namespace MatterHackers.MatterControl.PartPreviewWindow
 
             flowToAddTo.AddChild(saveButtons);
         }
+
+		void OpenSaveAsWindow(object state)
+		{
+			if (saveAsWindow == null)
+			{
+				saveAsWindow = new SaveAsWindow(MergeAndSavePartsToNewMeshFile);
+				saveAsWindow.Closed += new EventHandler(SaveAsWindow_Closed);
+			}
+			else
+			{
+				saveAsWindow.BringToFront();
+			}
+		}
+
+		void SaveAsWindow_Closed(object sender, EventArgs e)
+		{
+			this.saveAsWindow = null;
+		}
 
         public void PartHasBeenChanged()
         {
@@ -1262,7 +1269,7 @@ namespace MatterHackers.MatterControl.PartPreviewWindow
 
             //Create Save Button
             double oldWidth = whiteButtonFactory.FixedWidth;
-            whiteButtonFactory.FixedWidth = 56;
+			whiteButtonFactory.FixedWidth = 56 * TextWidget.GlobalPointSizeScaleRatio;
             Button saveButton = whiteButtonFactory.Generate("Save".Localize(), centerText: true);
             saveButton.Cursor = Cursors.Hand;
             saveButtons.AddChild(saveButton);
